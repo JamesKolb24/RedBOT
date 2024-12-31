@@ -3,7 +3,7 @@ from discord_components import ComponentsBot
 from music_cog import music_cog
 
 # Creat bot object
-bot = ComponentsBot()
+bot = ComponentsBot(command_prefix="I")
 
 bot.add_cog(music_cog(bot))
 
