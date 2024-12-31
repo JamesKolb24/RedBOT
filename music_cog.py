@@ -12,3 +12,14 @@ from youtube_dl import YoutubeDL
 class music_cog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+
+        self.is_playing = {}
+        self.is_paused = {}
+        self.musicQueue = {}
+        self.queueIndex = {}
+
+        self.vc = {}
+    @commands.Cog.listen()
+    async def on_ready(self):
+        for guild in self.bot.guilds:
+            id = int(guild.id)
