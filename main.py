@@ -1,12 +1,16 @@
 # Import resources from discord
-from discord_components import ComponentsBot
+import discord
+from discord.ext import commands
 from music_cog import music_cog
 
 # Creat bot object
-bot = ComponentsBot(command_prefix="I")
+intents = discord.Intents.default() # Enable required intents
+bot = commands.bot(command_prefix='!', intents=intents)
 
+# Add music cog
 bot.add_cog(music_cog(bot))
 
+# Run music bot
 with open("token.txt","r") as file:
     token = file.readlines()[0]
 bot.run(token)
