@@ -5,7 +5,7 @@ from music_cog import music_cog
 
 # Creat bot object
 intents = discord.Intents.default() # Enable required intents
-bot = commands.bot(command_prefix='!', intents=intents)
+bot = commands.Bot(command_prefix='!',intents=intents)
 
 # Add music cog
 bot.add_cog(music_cog(bot))
