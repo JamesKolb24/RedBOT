@@ -13,13 +13,25 @@ class music_cog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+        # Status of the music bot
         self.is_playing = {}
         self.is_paused = {}
         self.musicQueue = {}
         self.queueIndex = {}
 
-        self.vc = {}
-    @commands.Cog.listen()
+        self.voiceChannel = {}
+
+    # Runs every time the bot goes online in a server
+    @commands.Cog.listener()
     async def on_ready(self):
         for guild in self.bot.guilds:
             id = int(guild.id)
+            self.musicQueue[id] = []
+            self.queueIndex[id] = 0
+            self.vc[id] = None
+            self.is_paused[id] = self.is_playing[id] = False
+
+    # Commands
+
+    #
+    async def join_vc[self, ctx, channel]
